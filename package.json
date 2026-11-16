@@ -1,0 +1,30 @@
+{
+  "name": "seguridad-de-la-informacion",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "tsx watch server/index.ts",
+    "dev:web": "vite",
+    "build": "tsc && tsc -p tsconfig.server.json && vite build",
+    "start": "node dist-server/index.js",
+    "start:local": "cross-env NODE_ENV=production COOKIE_SECURE=false node dist-server/index.js",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/cookie-parser": "^1.4.10",
+    "@types/express": "^5.0.6",
+    "concurrently": "^10.0.7",
+    "cross-env": "^10.1.0",
+    "tsx": "^4.23.15",
+    "typescript": "~7.0.2",
+    "vite": "^8.3.6"
+  },
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.3.0"
+  }
+}
